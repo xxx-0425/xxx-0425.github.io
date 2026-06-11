@@ -459,14 +459,13 @@
   }
   var pointers = [pointerPrototype()];
 
-  // 主题色:青 → 紫 → 品红 之间随机
+  // 主题色:墨蓝色系
   function generateColor() {
     var palette = [
-      [0.05, 0.55, 0.6],   // cyan
-      [0.18, 0.1, 0.65],   // violet-blue
-      [0.55, 0.05, 0.32],  // magenta
-      [0.05, 0.25, 0.7],   // electric blue
-      [0.4, 0.0, 0.6],     // purple
+      [0.05, 0.35, 0.45],  // 墨青
+      [0.06, 0.2, 0.5],    // 墨蓝
+      [0.1, 0.28, 0.42],   // 青灰
+      [0.04, 0.14, 0.38],  // 深蓝
     ];
     var base = palette[Math.floor(Math.random() * palette.length)];
     var jitter = 0.7 + Math.random() * 0.6;

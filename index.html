@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>张强 · AI Agent / 全栈开发工程师</title>
   <meta name="description" content="张强 — AI Agent 与全栈开发工程师。深度学习图像分析研究者,LangGraph / FastAPI / Vue / Spring Boot 实践者。">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='72' font-size='64' font-family='Georgia,serif' font-weight='bold' fill='%23e8ecf4' text-anchor='middle'>ZQ</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -15,11 +15,6 @@
 
   <!-- WebGL 流体背景 -->
   <canvas id="fluid"></canvas>
-  <div class="grain"></div>
-
-  <!-- 自定义光标 -->
-  <div class="cursor-dot" id="cursorDot"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
 
   <!-- 导航 -->
   <nav class="nav">
@@ -35,7 +30,6 @@
 
   <!-- ================= Hero ================= -->
   <header class="hero" id="top">
-    <div class="hero-ghost" aria-hidden="true">AI&nbsp;×&nbsp;ENGINEERING</div>
     <div class="hero-inner">
       <p class="hero-kicker reveal"><span class="line"></span>你好,我是张强<span class="line line-r"></span></p>
       <h1 class="hero-title">
@@ -47,21 +41,12 @@
         两篇论文在审 · 商业项目已上线运营
       </p>
       <div class="hero-cta reveal delay-2">
-        <a class="btn btn-primary" href="#projects">看看我的项目 ↘</a>
-        <a class="btn btn-ghost" href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-primary" href="#projects">查看项目</a>
+        <a class="btn btn-ghost" href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub</a>
       </div>
-      <p class="hero-hint reveal delay-3">// <span class="hint-desktop">移动鼠标</span><span class="hint-mobile">滑动手指</span>,搅动这片流体</p>
     </div>
     <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </header>
-
-  <!-- ================= 跑马灯 ================= -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>LangGraph</span><i>◆</i><span>PyTorch</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Vue 3</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Milvus</span><i>◆</i><span>RAG</span><i>◆</i><span>Mamba</span><i>◆</i><span>Docker</span><i>◆</i><span>MySQL</span><i>◆</i><span>Redis</span><i>◆</i>
-      <span>LangGraph</span><i>◆</i><span>PyTorch</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Vue 3</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Milvus</span><i>◆</i><span>RAG</span><i>◆</i><span>Mamba</span><i>◆</i><span>Docker</span><i>◆</i><span>MySQL</span><i>◆</i><span>Redis</span><i>◆</i>
-    </div>
-  </div>
 
   <main>
     <!-- ================= 关于 ================= -->
@@ -72,17 +57,14 @@
       </div>
       <div class="about-grid">
         <div class="about-card glass reveal">
-          <div class="about-icon">⌬</div>
           <h3>技术广度</h3>
           <p>研究方向为深度学习图像分析(两篇论文在审),同时具备全栈工程的商业项目落地经验,从模型到产品都能独立交付。</p>
         </div>
         <div class="about-card glass reveal delay-1">
-          <div class="about-icon">⟁</div>
           <h3>AI 实践</h3>
           <p>持续关注 LLM 与 Agent 技术进展,有个人 Agent 项目的完整开发与联调实践经验,熟悉 RAG 与多步工作流编排。</p>
         </div>
         <div class="about-card glass reveal delay-2">
-          <div class="about-icon">⚡︎</div>
           <h3>自驱与执行</h3>
           <p>独立完成商业项目从开发、对接、上线到维护的全流程(漉野户外已上线运营);习惯阅读英文官方文档,问题排查能力强。</p>
         </div>
@@ -93,7 +75,7 @@
     <section class="section" id="skills">
       <div class="section-head reveal">
         <span class="section-no">02</span>
-        <h2>技能矩阵<span class="accent">。</span></h2>
+        <h2>技能<span class="accent">。</span></h2>
       </div>
       <div class="skills-list">
         <div class="skill-row glass reveal">
@@ -102,7 +84,6 @@
             <h3>AI / Agent 开发</h3>
             <p>熟悉 LLM 应用集成与 Prompt 编写,具备大模型 API 的调用与业务落地经验;对 RAG(检索增强生成)与 AI Agent 的基本原理有一定了解。</p>
           </div>
-          <div class="skill-meter"><i style="--w:88%"></i></div>
         </div>
         <div class="skill-row glass reveal">
           <div class="skill-tag">DL / CV</div>
@@ -110,7 +91,6 @@
             <h3>深度学习 / 计算机视觉</h3>
             <p>熟练掌握 CNN、Transformer、Mamba 等主流图像分析架构;具备语义分割、目标检测的完整实验与调优经验;熟练使用 PyTorch 训练与推理部署。</p>
           </div>
-          <div class="skill-meter"><i style="--w:92%"></i></div>
         </div>
         <div class="skill-row glass reveal">
           <div class="skill-tag">Backend</div>
@@ -118,7 +98,6 @@
             <h3>后端开发</h3>
             <p>熟练使用 Python (FastAPI/Flask) 与 Java (Spring Boot) 进行 Web 后端与 RESTful API 开发;掌握 MySQL 设计优化与 Redis 缓存应用。</p>
           </div>
-          <div class="skill-meter"><i style="--w:90%"></i></div>
         </div>
         <div class="skill-row glass reveal">
           <div class="skill-tag">Frontend</div>
@@ -126,7 +105,6 @@
             <h3>前端开发</h3>
             <p>熟练使用 Vue.js 构建 Web 应用及微信小程序,精通 HTML5、CSS3、ES6+。</p>
           </div>
-          <div class="skill-meter"><i style="--w:85%"></i></div>
         </div>
         <div class="skill-row glass reveal">
           <div class="skill-tag">DevOps</div>
@@ -134,7 +112,6 @@
             <h3>工程化与部署</h3>
             <p>熟练掌握 Git、Docker 容器化及 Linux 服务器部署,有项目从开发到上线全流程经验;熟练使用 Cursor / Copilot / Claude Code 提升开发效率。</p>
           </div>
-          <div class="skill-meter"><i style="--w:86%"></i></div>
         </div>
       </div>
     </section>
@@ -233,11 +210,10 @@
     <!-- ================= 联系 ================= -->
     <section class="section contact" id="contact">
       <div class="contact-inner reveal">
-        <p class="contact-kicker">WANT TO BUILD SOMETHING?</p>
-        <h2 class="contact-title">来聊聊<span class="accent">。</span></h2>
+        <h2 class="contact-title">联系我<span class="accent">。</span></h2>
         <a class="contact-mail" href="mailto:clarkakaxxx@gmail.com">clarkakaxxx@gmail.com</a>
         <div class="contact-links">
-          <a href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub</a>
           <span>·</span>
           <span>四川 · 南充</span>
         </div>
@@ -246,7 +222,7 @@
   </main>
 
   <footer class="footer">
-    <p>© 2026 张强 — Crafted with WebGL fluid &amp; <span class="accent">♥</span></p>
+    <p>© 2026 张强</p>
   </footer>
 
   <script src="js/fluid.js"></script>
