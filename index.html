@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张强 · AI Agent / 全栈开发工程师</title>
+  <meta name="description" content="张强 — AI Agent 与全栈开发工程师。深度学习图像分析研究者,LangGraph / FastAPI / Vue / Spring Boot 实践者。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- WebGL 流体背景 -->
+  <canvas id="fluid"></canvas>
+  <div class="grain"></div>
+
+  <!-- 自定义光标 -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- 导航 -->
+  <nav class="nav">
+    <a class="nav-logo" href="#top">ZQ<span class="nav-logo-dot">.</span></a>
+    <div class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#skills">技能</a>
+      <a href="#projects">项目</a>
+      <a href="#papers">论文</a>
+      <a href="#contact">联系</a>
+    </div>
+  </nav>
+
+  <!-- ================= Hero ================= -->
+  <header class="hero" id="top">
+    <div class="hero-ghost" aria-hidden="true">AI&nbsp;×&nbsp;ENGINEERING</div>
+    <div class="hero-inner">
+      <p class="hero-kicker reveal"><span class="line"></span>你好,我是张强<span class="line line-r"></span></p>
+      <h1 class="hero-title">
+        <span class="hero-line char">构建<em>会思考</em>的 Agent</span>
+        <span class="hero-line char">也写<em>跑在生产环境</em>的系统</span>
+      </h1>
+      <p class="hero-sub reveal delay-1">
+        AI Agent / 全栈开发工程师 · 深度学习图像分析研究者<br>
+        两篇论文在审 · 商业项目已上线运营
+      </p>
+      <div class="hero-cta reveal delay-2">
+        <a class="btn btn-primary" href="#projects">看看我的项目 ↘</a>
+        <a class="btn btn-ghost" href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+      <p class="hero-hint reveal delay-3">// 移动鼠标,搅动这片流体</p>
+    </div>
+    <div class="scroll-cue" aria-hidden="true"><span></span></div>
+  </header>
+
+  <!-- ================= 跑马灯 ================= -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>LangGraph</span><i>◆</i><span>PyTorch</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Vue 3</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Milvus</span><i>◆</i><span>RAG</span><i>◆</i><span>Mamba</span><i>◆</i><span>Docker</span><i>◆</i><span>MySQL</span><i>◆</i><span>Redis</span><i>◆</i>
+      <span>LangGraph</span><i>◆</i><span>PyTorch</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Vue 3</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Milvus</span><i>◆</i><span>RAG</span><i>◆</i><span>Mamba</span><i>◆</i><span>Docker</span><i>◆</i><span>MySQL</span><i>◆</i><span>Redis</span><i>◆</i>
+    </div>
+  </div>
+
+  <main>
+    <!-- ================= 关于 ================= -->
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <span class="section-no">01</span>
+        <h2>关于我<span class="accent">。</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card glass reveal">
+          <div class="about-icon">⌬</div>
+          <h3>技术广度</h3>
+          <p>研究方向为深度学习图像分析(两篇论文在审),同时具备全栈工程的商业项目落地经验,从模型到产品都能独立交付。</p>
+        </div>
+        <div class="about-card glass reveal delay-1">
+          <div class="about-icon">⟁</div>
+          <h3>AI 实践</h3>
+          <p>持续关注 LLM 与 Agent 技术进展,有个人 Agent 项目的完整开发与联调实践经验,熟悉 RAG 与多步工作流编排。</p>
+        </div>
+        <div class="about-card glass reveal delay-2">
+          <div class="about-icon">⚡︎</div>
+          <h3>自驱与执行</h3>
+          <p>独立完成商业项目从开发、对接、上线到维护的全流程(漉野户外已上线运营);习惯阅读英文官方文档,问题排查能力强。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 技能 ================= -->
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <span class="section-no">02</span>
+        <h2>技能矩阵<span class="accent">。</span></h2>
+      </div>
+      <div class="skills-list">
+        <div class="skill-row glass reveal">
+          <div class="skill-tag">AI / Agent</div>
+          <div class="skill-body">
+            <h3>AI / Agent 开发</h3>
+            <p>熟悉 LLM 应用集成与 Prompt 编写,具备大模型 API 的调用与业务落地经验;对 RAG(检索增强生成)与 AI Agent 的基本原理有一定了解。</p>
+          </div>
+          <div class="skill-meter"><i style="--w:88%"></i></div>
+        </div>
+        <div class="skill-row glass reveal">
+          <div class="skill-tag">DL / CV</div>
+          <div class="skill-body">
+            <h3>深度学习 / 计算机视觉</h3>
+            <p>熟练掌握 CNN、Transformer、Mamba 等主流图像分析架构;具备语义分割、目标检测的完整实验与调优经验;熟练使用 PyTorch 训练与推理部署。</p>
+          </div>
+          <div class="skill-meter"><i style="--w:92%"></i></div>
+        </div>
+        <div class="skill-row glass reveal">
+          <div class="skill-tag">Backend</div>
+          <div class="skill-body">
+            <h3>后端开发</h3>
+            <p>熟练使用 Python (FastAPI/Flask) 与 Java (Spring Boot) 进行 Web 后端与 RESTful API 开发;掌握 MySQL 设计优化与 Redis 缓存应用。</p>
+          </div>
+          <div class="skill-meter"><i style="--w:90%"></i></div>
+        </div>
+        <div class="skill-row glass reveal">
+          <div class="skill-tag">Frontend</div>
+          <div class="skill-body">
+            <h3>前端开发</h3>
+            <p>熟练使用 Vue.js 构建 Web 应用及微信小程序,精通 HTML5、CSS3、ES6+。</p>
+          </div>
+          <div class="skill-meter"><i style="--w:85%"></i></div>
+        </div>
+        <div class="skill-row glass reveal">
+          <div class="skill-tag">DevOps</div>
+          <div class="skill-body">
+            <h3>工程化与部署</h3>
+            <p>熟练掌握 Git、Docker 容器化及 Linux 服务器部署,有项目从开发到上线全流程经验;熟练使用 Cursor / Copilot / Claude Code 提升开发效率。</p>
+          </div>
+          <div class="skill-meter"><i style="--w:86%"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 项目 ================= -->
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <span class="section-no">03</span>
+        <h2>精选项目<span class="accent">。</span></h2>
+      </div>
+
+      <article class="project glass reveal">
+        <div class="project-meta">
+          <span class="project-index">P-01</span>
+          <span class="project-date">2025.10 — 2026.05</span>
+        </div>
+        <h3 class="project-name">InsightForge<span class="project-name-sub">多源智能调研 Agent</span></h3>
+        <p class="project-role">个人项目 · AI Agent / 全栈开发</p>
+        <ul class="project-points">
+          <li><strong>调研工作流</strong> — 基于 LangGraph 构建问题分析、Web/RAG 检索、内容整理与报告生成流程,支持简单问题快速回答与复杂问题深度检索。</li>
+          <li><strong>检索质量优化</strong> — 集成 Bocha Web Search 与 Milvus 知识库,实现查询拆解、相关性评分、低质结果过滤与引用来源校验,生成带来源的 Markdown 研报。</li>
+          <li><strong>自动补充检索</strong> — 分析资料是否覆盖问题要点,信息不足时自动生成新检索词再次搜索,并设最大迭代次数避免无限循环。</li>
+          <li><strong>服务与交互</strong> — FastAPI + SSE 流式返回工作流执行进度与生成结果,Vue 构建调研工作台。</li>
+        </ul>
+        <div class="project-tech">
+          <span>Python</span><span>LangGraph</span><span>FastAPI</span><span>Vue 3</span><span>Milvus</span><span>PostgreSQL</span>
+        </div>
+      </article>
+
+      <article class="project glass reveal">
+        <div class="project-meta">
+          <span class="project-index">P-02</span>
+          <span class="project-date">2025.07 — 2025.08 · 已上线运营</span>
+        </div>
+        <h3 class="project-name">漉野户外<span class="project-name-sub">综合交易与装备租赁平台</span></h3>
+        <p class="project-role">全栈开发工程师 · 微信小程序「LuYea户外」</p>
+        <ul class="project-points">
+          <li><strong>项目架构</strong> — 独立完成已上线户外交易平台:微信小程序、Vue 管理后台与 Spring Boot 服务端,覆盖普通商品、装备租赁、团购、会员与分销业务。</li>
+          <li><strong>订单与库存体系</strong> — 统一建模四类订单;事务 + 条件更新实现 SKU 库存扣减与回补,并联动积分返还、赠送积分扣除及分销佣金回退。</li>
+          <li><strong>支付与售后闭环</strong> — 对接微信支付 V3:回调验签解密、重复回调防护、主动查单与退款回调;完整的退款申请-审核-退货-验收流程。</li>
+          <li><strong>团购与任务调度</strong> — 原子条件更新 + 行锁控制团购名额,满额自动退款、成团开新批次;支付轮询、超时关单、积分清零等定时任务。</li>
+        </ul>
+        <div class="project-tech">
+          <span>Java</span><span>Spring Boot</span><span>MyBatis-Plus</span><span>MySQL</span><span>Vue 3</span><span>UniApp</span><span>微信支付 V3</span><span>腾讯云 COS</span>
+        </div>
+      </article>
+    </section>
+
+    <!-- ================= 论文 ================= -->
+    <section class="section" id="papers">
+      <div class="section-head reveal">
+        <span class="section-no">04</span>
+        <h2>学术成果<span class="accent">。</span></h2>
+      </div>
+      <div class="papers-grid">
+        <article class="paper glass reveal">
+          <span class="paper-status">Under Review</span>
+          <h3>MAC-Net</h3>
+          <p class="paper-full">Frequency-Enhanced Crack Segmentation Network based on Mamba-Assisted Feature Extraction</p>
+          <p class="paper-desc">提出基于 Mamba 架构辅助特征提取的频域增强网络,有效解决复杂背景下微小裂缝的分割难题,在多个公开数据集上达到 SOTA 性能。</p>
+        </article>
+        <article class="paper glass reveal delay-1">
+          <span class="paper-status">Under Review</span>
+          <h3>LDSCNet</h3>
+          <p class="paper-full">Lightweight Directional Stripe Coupling Network for Pavement Crack Segmentation</p>
+          <p class="paper-desc">设计轻量化方向条带耦合网络,大幅降低参数量与计算开销,同时保持高精度分割效果,适配移动端与边缘设备的实时检测部署。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= 教育 ================= -->
+    <section class="section" id="edu">
+      <div class="section-head reveal">
+        <span class="section-no">05</span>
+        <h2>教育背景<span class="accent">。</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2024.09 — 2027.06</span>
+          <h3>重庆理工大学</h3>
+          <p>计算机专业 · 硕士在读 · 研究方向:深度学习图像分析</p>
+        </div>
+        <div class="timeline-item reveal delay-1">
+          <span class="timeline-date">2020.09 — 2024.06</span>
+          <h3>重庆城市科技学院</h3>
+          <p>计算机科学与技术 · 学士</p>
+        </div>
+        <div class="timeline-item reveal delay-2">
+          <span class="timeline-date">CET-4 · 486</span>
+          <h3>英语能力</h3>
+          <p>具备英文技术文档阅读能力,习惯查阅英文官方文档</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 联系 ================= -->
+    <section class="section contact" id="contact">
+      <div class="contact-inner reveal">
+        <p class="contact-kicker">WANT TO BUILD SOMETHING?</p>
+        <h2 class="contact-title">来聊聊<span class="accent">。</span></h2>
+        <a class="contact-mail" href="mailto:clarkakaxxx@gmail.com">clarkakaxxx@gmail.com</a>
+        <div class="contact-links">
+          <a href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub ↗</a>
+          <span>·</span>
+          <span>四川 · 南充</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 张强 — Crafted with WebGL fluid &amp; <span class="accent">♥</span></p>
+  </footer>
+
+  <script src="js/fluid.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
