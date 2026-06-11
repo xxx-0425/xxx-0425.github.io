@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>张强 · AI Agent / 全栈开发工程师</title>
-  <meta name="description" content="张强 — AI Agent 与全栈开发工程师。深度学习图像分析研究者,LangGraph / FastAPI / Vue / Spring Boot 实践者。">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='72' font-size='64' font-family='Georgia,serif' font-weight='bold' fill='%23e8ecf4' text-anchor='middle'>ZQ</text></svg>">
+  <title>akaxxx · 构建会思考的 Agent</title>
+  <meta name="description" content="akaxxx — AI Agent 与全栈开发工程师。深度学习图像分析研究者,LangGraph / FastAPI / Vue / Spring Boot 实践者。">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='72' font-size='58' font-family='Georgia,serif' font-weight='bold' fill='%23e8ecf4' text-anchor='middle'>ak</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;900&family=Noto+Sans+SC:wght@300;400;500;700&family=JetBrains+Mono:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -16,9 +16,14 @@
   <!-- WebGL 流体背景 -->
   <canvas id="fluid"></canvas>
 
-  <!-- 导航 -->
+  <!-- 顶部状态栏 -->
   <nav class="nav">
-    <a class="nav-logo" href="#top">ZQ<span class="nav-logo-dot">.</span></a>
+    <a class="nav-logo" href="#top">akaxxx<span class="nav-logo-dot">_</span></a>
+    <button class="nav-status" id="navStatus" type="button" title="按 / 也可以打开">
+      <span class="nav-status-dot"></span>
+      <span class="nav-status-text">agent · online</span>
+      <span class="nav-status-key">/</span>
+    </button>
     <div class="nav-links">
       <a href="#about">关于</a>
       <a href="#skills">技能</a>
@@ -28,53 +33,157 @@
     </div>
   </nav>
 
+  <!-- 左侧工作流图导航 (桌面端) -->
+  <aside class="rail" aria-label="页面导航">
+    <div class="rail-line"><i id="railProgress"></i></div>
+    <a class="rail-node rail-end" href="#top" data-section="top">
+      <span class="rail-dot"></span><span class="rail-label">START</span>
+    </a>
+    <a class="rail-node" href="#about" data-section="about">
+      <span class="rail-dot"></span><span class="rail-label">01 · 关于</span>
+    </a>
+    <a class="rail-node" href="#skills" data-section="skills">
+      <span class="rail-dot"></span><span class="rail-label">02 · 技能</span>
+    </a>
+    <a class="rail-node" href="#projects" data-section="projects">
+      <span class="rail-dot"></span><span class="rail-label">03 · 项目</span>
+    </a>
+    <a class="rail-node" href="#papers" data-section="papers">
+      <span class="rail-dot"></span><span class="rail-label">04 · 论文</span>
+    </a>
+    <a class="rail-node" href="#edu" data-section="edu">
+      <span class="rail-dot"></span><span class="rail-label">05 · 教育</span>
+    </a>
+    <a class="rail-node" href="#interests" data-section="interests">
+      <span class="rail-dot"></span><span class="rail-label">06 · 热爱</span>
+    </a>
+    <a class="rail-node" href="#contact" data-section="contact">
+      <span class="rail-dot"></span><span class="rail-label">07 · 联系</span>
+    </a>
+    <a class="rail-node rail-end" href="#contact" data-section="end">
+      <span class="rail-dot"></span><span class="rail-label">END</span>
+    </a>
+  </aside>
+
   <!-- ================= Hero ================= -->
   <header class="hero" id="top">
+
+    <!-- 旋转徽章贴纸 -->
+    <div class="badge-spin" aria-hidden="true">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <path id="circlePath" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"/>
+        </defs>
+        <text>
+          <textPath href="#circlePath">AKAXXX ✦ AGENT BUILDER ✦ FULLSTACK ✦ CV RESEARCH ✦ </textPath>
+        </text>
+      </svg>
+      <span class="badge-core">✦</span>
+    </div>
+
     <div class="hero-inner">
-      <p class="hero-kicker reveal"><span class="line"></span>你好,我是张强<span class="line line-r"></span></p>
-      <h1 class="hero-title">
-        <span class="hero-line char">构建<em>会思考</em>的 Agent</span>
-        <span class="hero-line char">也写<em>跑在生产环境</em>的系统</span>
+      <p class="hero-kicker reveal"><span class="kicker-prompt">❯</span> hello, world — 我是</p>
+
+      <!-- 巨型名字 -->
+      <h1 class="hero-name" aria-label="akaxxx" data-text="AKAXXX">
+        <span class="ltr">A</span><span class="ltr ltr-outline">K</span><span class="ltr">A</span><span class="ltr ltr-outline">X</span><span class="ltr">X</span><span class="ltr ltr-outline">X</span>
       </h1>
-      <p class="hero-sub reveal delay-1">
-        AI Agent / 全栈开发工程师 · 深度学习图像分析研究者<br>
-        两篇论文在审 · 商业项目已上线运营
+
+      <p class="hero-tagline">
+        构建<em>会思考</em>的 Agent,也写<em>跑在生产环境</em>的系统
       </p>
-      <div class="hero-cta reveal delay-2">
+
+      <!-- 终端启动卡 -->
+      <div class="boot glass reveal delay-1">
+        <div class="boot-bar">
+          <i></i><i></i><i></i>
+          <span class="boot-title">agent — zsh</span>
+        </div>
+        <div class="boot-body">
+          <p class="boot-cmd"><span class="boot-prompt">❯</span> <span id="typeline"></span><span class="caret" id="typeCaret">▍</span></p>
+          <ul class="boot-log" id="bootLog">
+            <li><span class="log-ok">✓</span> 档案加载 — AI Agent / 全栈开发工程师</li>
+            <li><span class="log-ok">✓</span> 工作流编译 — 7 个节点 · 预计阅读 3 分钟</li>
+            <li><span class="log-ok">✓</span> 外设挂载 — 3D 打印机 · 无人机 · 桌搭</li>
+            <li><span class="log-run">▸</span> 正在执行,向下滚动查看结果…</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 关键事实 -->
+      <div class="hero-facts reveal delay-2" aria-label="关键事实">
+        <div class="fact">
+          <span class="fact-num">02</span>
+          <span class="fact-desc">论文在审<br>(一作)</span>
+        </div>
+        <div class="fact-divider"></div>
+        <div class="fact">
+          <span class="fact-num">01</span>
+          <span class="fact-desc">商业项目<br>上线运营中</span>
+        </div>
+        <div class="fact-divider"></div>
+        <div class="fact">
+          <span class="fact-num">06</span>
+          <span class="fact-desc">技术栈<br>模型到产品</span>
+        </div>
+      </div>
+
+      <div class="hero-cta reveal delay-3">
         <a class="btn btn-primary" href="#projects">查看项目</a>
         <a class="btn btn-ghost" href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub</a>
       </div>
+
+      <p class="hero-tip reveal delay-3">tip: 点击页面空白处会发生一些事 · <span class="tip-desktop">按 <b>/</b> 打开终端</span><span class="tip-mobile">点右上角绿点打开终端</span></p>
     </div>
     <div class="scroll-cue" aria-hidden="true"><span></span></div>
   </header>
 
+  <!-- 斜切横幅 -->
+  <div class="bands" aria-hidden="true">
+    <div class="band band-solid">
+      <div class="band-track">
+        <span>VIBE CODING ✦ 3D PRINTING ✦ FPV DRONE ✦ NAS ✦ DESK SETUP ✦ AGENTS ✦ LANGGRAPH ✦ PYTORCH ✦ SELF-HOSTED ✦ </span><span>VIBE CODING ✦ 3D PRINTING ✦ FPV DRONE ✦ NAS ✦ DESK SETUP ✦ AGENTS ✦ LANGGRAPH ✦ PYTORCH ✦ SELF-HOSTED ✦ </span>
+      </div>
+    </div>
+    <div class="band band-ghost">
+      <div class="band-track">
+        <span>构建会思考的 AGENT ✦ 也写跑在生产环境的系统 ✦ 热爱即引擎 ✦ </span><span>构建会思考的 AGENT ✦ 也写跑在生产环境的系统 ✦ 热爱即引擎 ✦ </span>
+      </div>
+    </div>
+  </div>
+
   <main>
-    <!-- ================= 关于 ================= -->
+    <!-- ================= 01 关于 ================= -->
     <section class="section" id="about">
+      <span class="ghost-no" aria-hidden="true">01</span>
       <div class="section-head reveal">
-        <span class="section-no">01</span>
+        <p class="section-log"><span class="log-bracket">[</span>01 · analyze_profile<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
         <h2>关于我<span class="accent">。</span></h2>
       </div>
       <div class="about-grid">
-        <div class="about-card glass reveal">
-          <h3>技术广度</h3>
-          <p>研究方向为深度学习图像分析(两篇论文在审),同时具备全栈工程的商业项目落地经验,从模型到产品都能独立交付。</p>
+        <div class="about-card glass reveal tilt-l">
+          <p class="card-tag">finding #1</p>
+          <h3>模型到产品,独立交付</h3>
+          <p>研究方向为深度学习图像分析(两篇论文在审),同时具备全栈工程的商业项目落地经验——训练模型、写后端、上线运维,一个人能跑完整条链路。</p>
         </div>
-        <div class="about-card glass reveal delay-1">
-          <h3>AI 实践</h3>
-          <p>持续关注 LLM 与 Agent 技术进展,有个人 Agent 项目的完整开发与联调实践经验,熟悉 RAG 与多步工作流编排。</p>
+        <div class="about-card glass reveal delay-1 tilt-r">
+          <p class="card-tag">finding #2</p>
+          <h3>Agent 不止于 Demo</h3>
+          <p>持续跟进 LLM 与 Agent 技术,有个人 Agent 项目的完整开发与联调实践,熟悉 RAG 与多步工作流编排——这个网站本身就是按一次 Agent 运行来设计的。</p>
         </div>
-        <div class="about-card glass reveal delay-2">
-          <h3>自驱与执行</h3>
-          <p>独立完成商业项目从开发、对接、上线到维护的全流程(漉野户外已上线运营);习惯阅读英文官方文档,问题排查能力强。</p>
+        <div class="about-card glass reveal delay-2 tilt-l2">
+          <p class="card-tag">finding #3</p>
+          <h3>上线了,还在运营</h3>
+          <p>独立完成商业项目从开发、对接、上线到维护的全流程(漉野户外已上线运营);习惯阅读英文官方文档,问题排查不靠猜。</p>
         </div>
       </div>
     </section>
 
-    <!-- ================= 技能 ================= -->
+    <!-- ================= 02 技能 ================= -->
     <section class="section" id="skills">
+      <span class="ghost-no ghost-left" aria-hidden="true">02</span>
       <div class="section-head reveal">
-        <span class="section-no">02</span>
+        <p class="section-log"><span class="log-bracket">[</span>02 · retrieve_skills<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
         <h2>技能<span class="accent">。</span></h2>
       </div>
       <div class="skills-list">
@@ -116,16 +225,17 @@
       </div>
     </section>
 
-    <!-- ================= 项目 ================= -->
+    <!-- ================= 03 项目 ================= -->
     <section class="section" id="projects">
+      <span class="ghost-no" aria-hidden="true">03</span>
       <div class="section-head reveal">
-        <span class="section-no">03</span>
+        <p class="section-log"><span class="log-bracket">[</span>03 · inspect_projects<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
         <h2>精选项目<span class="accent">。</span></h2>
       </div>
 
       <article class="project glass reveal">
         <div class="project-meta">
-          <span class="project-index">P-01</span>
+          <span class="project-index">P-01 · status: <em class="status-dev">in_development</em></span>
           <span class="project-date">2025.10 — 2026.05</span>
         </div>
         <h3 class="project-name">InsightForge<span class="project-name-sub">多源智能调研 Agent</span></h3>
@@ -143,8 +253,8 @@
 
       <article class="project glass reveal">
         <div class="project-meta">
-          <span class="project-index">P-02</span>
-          <span class="project-date">2025.07 — 2025.08 · 已上线运营</span>
+          <span class="project-index">P-02 · status: <em class="status-live">shipped · running</em></span>
+          <span class="project-date">2025.07 — 2025.08</span>
         </div>
         <h3 class="project-name">漉野户外<span class="project-name-sub">综合交易与装备租赁平台</span></h3>
         <p class="project-role">全栈开发工程师 · 微信小程序「LuYea户外」</p>
@@ -160,20 +270,21 @@
       </article>
     </section>
 
-    <!-- ================= 论文 ================= -->
+    <!-- ================= 04 论文 ================= -->
     <section class="section" id="papers">
+      <span class="ghost-no ghost-left" aria-hidden="true">04</span>
       <div class="section-head reveal">
-        <span class="section-no">04</span>
+        <p class="section-log"><span class="log-bracket">[</span>04 · search_papers<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
         <h2>学术成果<span class="accent">。</span></h2>
       </div>
       <div class="papers-grid">
-        <article class="paper glass reveal">
+        <article class="paper glass reveal tilt-l">
           <span class="paper-status">Under Review</span>
           <h3>MAC-Net</h3>
           <p class="paper-full">Frequency-Enhanced Crack Segmentation Network based on Mamba-Assisted Feature Extraction</p>
           <p class="paper-desc">提出基于 Mamba 架构辅助特征提取的频域增强网络,有效解决复杂背景下微小裂缝的分割难题,在多个公开数据集上达到 SOTA 性能。</p>
         </article>
-        <article class="paper glass reveal delay-1">
+        <article class="paper glass reveal delay-1 tilt-r">
           <span class="paper-status">Under Review</span>
           <h3>LDSCNet</h3>
           <p class="paper-full">Lightweight Directional Stripe Coupling Network for Pavement Crack Segmentation</p>
@@ -182,10 +293,11 @@
       </div>
     </section>
 
-    <!-- ================= 教育 ================= -->
+    <!-- ================= 05 教育 ================= -->
     <section class="section" id="edu">
+      <span class="ghost-no" aria-hidden="true">05</span>
       <div class="section-head reveal">
-        <span class="section-no">05</span>
+        <p class="section-log"><span class="log-bracket">[</span>05 · trace_timeline<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
         <h2>教育背景<span class="accent">。</span></h2>
       </div>
       <div class="timeline">
@@ -207,10 +319,155 @@
       </div>
     </section>
 
-    <!-- ================= 联系 ================= -->
+    <!-- ================= 06 热爱 = 副本任务 ================= -->
+    <section class="section" id="interests">
+      <span class="ghost-no ghost-left" aria-hidden="true">06</span>
+      <div class="section-head reveal">
+        <p class="section-log"><span class="log-bracket">[</span>06 · scan_interests<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
+        <h2>热爱<span class="accent">。</span></h2>
+        <p class="section-sub">副本任务 — 代码之外,也在造东西。</p>
+      </div>
+
+      <div class="bento">
+        <!-- 3D 打印机:大卡,逐层打印 -->
+        <div class="bento-card card-printer glass reveal">
+          <div class="printer" aria-hidden="true">
+            <span class="printer-spool"><i></i></span>
+            <span class="printer-screw screw-l"></span>
+            <span class="printer-screw screw-r"></span>
+            <span class="printer-rail"></span>
+            <span class="printer-carriage"><i class="printer-nozzle"></i></span>
+            <div class="print-object">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="print-spark">✦</span>
+            <span class="printer-bed"></span>
+            <span class="printer-panel"><b>AKX-350</b><i></i><i></i></span>
+          </div>
+          <p class="interest-status"><span class="log-run">▸</span> printing&nbsp;<b id="printPct">0</b>%&nbsp;· akaxxx.gcode</p>
+          <h3>3D 打印</h3>
+          <p>想要的东西先建模再打出来;调平热床和调参模型,一样上瘾。</p>
+        </div>
+
+        <!-- 无人机:宽卡,悬停 + 翻滚 -->
+        <div class="bento-card card-drone glass reveal delay-1">
+          <div class="drone-scene" aria-hidden="true">
+            <div class="drone">
+              <span class="drone-arm arm-a"></span>
+              <span class="drone-arm arm-b"></span>
+              <i class="prop p1"></i><i class="prop p2"></i>
+              <i class="prop p3"></i><i class="prop p4"></i>
+              <span class="drone-body"></span>
+              <i class="drone-led led-l"></i><i class="drone-led led-r"></i>
+              <span class="drone-cam"></span>
+              <span class="drone-skid sk-l"></span><span class="drone-skid sk-r"></span>
+            </div>
+            <span class="wind w1"></span>
+            <span class="wind w2"></span>
+            <span class="wind w3"></span>
+            <span class="drone-shadow"></span>
+            <span class="drone-pad">H</span>
+          </div>
+          <p class="interest-status"><span class="log-ok">✓</span> hovering · gps lock · 4 sats</p>
+          <h3>无人机</h3>
+          <p>换个高度看世界;炸机三次之后,焊接技术明显变好了。</p>
+        </div>
+
+        <!-- vibe coding:代码自动敲出来 -->
+        <div class="bento-card card-vibe glass reveal">
+          <div class="chip-scene scene-code" aria-hidden="true">
+            <span class="code-chrome"><i></i><i></i><i></i><b>vibe.ts</b></span>
+            <div class="code-body">
+              <i class="code-line l1"><b></b><b></b><b></b></i>
+              <i class="code-line l2"><b></b><b></b></i>
+              <i class="code-line l3"><b></b><b></b><b></b></i>
+              <i class="code-line l4"><b></b><b></b></i>
+            </div>
+            <span class="code-pop"><i></i><i></i><i></i></span>
+            <span class="code-note">♪</span>
+          </div>
+          <p class="interest-status"><span class="log-run">▸</span> npm run dream</p>
+          <h3>vibe coding</h3>
+          <p>和 AI 结对,想法当晚变 demo</p>
+        </div>
+
+        <!-- NAS:盘位灯 + 吞吐流光 -->
+        <div class="bento-card card-nas glass reveal delay-1">
+          <div class="chip-scene scene-nas" aria-hidden="true">
+            <span class="nas-unit">
+              <span class="nas-face"><b>AKX·NAS</b><i class="nas-pwr"></i></span>
+              <span class="nas-bay"><u></u><i></i></span>
+              <span class="nas-bay"><u></u><i></i></span>
+              <span class="nas-bay"><u></u><i></i></span>
+              <span class="nas-bay"><u></u><i></i></span>
+            </span>
+            <span class="nas-tput"><b></b></span>
+          </div>
+          <p class="interest-status"><span class="log-ok">✓</span> RAID5 · 247d up</p>
+          <h3>NAS 重度用户</h3>
+          <p>数据自己管,服务自己跑,7×24 在线</p>
+        </div>
+
+        <!-- 桌搭:宽卡,显示器 + RGB 键盘 -->
+        <div class="bento-card card-desk glass reveal delay-2">
+          <div class="chip-scene scene-desk" aria-hidden="true">
+            <span class="desk-monitor"><i class="mc m1"></i><i class="mc m2"></i><i class="mc m3"></i></span>
+            <span class="desk-stand"></span>
+            <span class="desk-top"></span>
+            <span class="desk-glow"></span>
+            <span class="desk-kb">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </span>
+            <span class="desk-mouse"></span>
+            <span class="desk-mug"><i></i><i></i></span>
+          </div>
+          <p class="interest-status"><span class="log-ok">✓</span> rgb wave · cable: invisible</p>
+          <h3>桌搭</h3>
+          <p>桌面是第二个 IDE,理线强迫症</p>
+        </div>
+
+        <!-- 智能设备:中枢波纹 + 设备应答 -->
+        <div class="bento-card card-iot glass reveal delay-2">
+          <div class="chip-scene scene-iot" aria-hidden="true">
+            <span class="iot-ring r1"></span>
+            <span class="iot-ring r2"></span>
+            <span class="iot-hub"></span>
+            <span class="iot-orbit o1"><i class="iot-dev dev-bulb"></i></span>
+            <span class="iot-orbit o2"><i class="iot-dev dev-cam"></i><i class="iot-dev dev-plug"></i></span>
+          </div>
+          <p class="interest-status"><span class="log-ok">✓</span> 12 devices online</p>
+          <h3>智能设备</h3>
+          <p>能联网的都想刷一遍固件</p>
+        </div>
+
+        <!-- 前沿技术:雷达扫描 -->
+        <div class="bento-card card-radar glass reveal delay-3">
+          <div class="chip-scene scene-radar" aria-hidden="true">
+            <span class="radar-ticks"></span>
+            <span class="radar-disc"></span>
+            <span class="radar-sweep"></span>
+            <span class="radar-blip b1"></span>
+            <span class="radar-blip b2"></span>
+            <span class="radar-blip b3"></span>
+          </div>
+          <p class="interest-status"><span class="log-run">▸</span> scanning · 2 new</p>
+          <h3>前沿技术</h3>
+          <p>新模型发布当天必须摸一遍</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 07 联系 = 报告输出 ================= -->
     <section class="section contact" id="contact">
+      <div class="contact-band" aria-hidden="true">
+        <div class="band-track">
+          <span>LET'S TALK ✦ 来聊聊 ✦ OPEN TO WORK ✦ </span><span>LET'S TALK ✦ 来聊聊 ✦ OPEN TO WORK ✦ </span>
+        </div>
+      </div>
       <div class="contact-inner reveal">
-        <h2 class="contact-title">联系我<span class="accent">。</span></h2>
+        <p class="section-log contact-log"><span class="log-bracket">[</span>07 · generate_report<span class="log-bracket">]</span><span class="node-status" data-state="idle"><i></i><b></b></span></p>
+        <h2 class="contact-title">报告生成完毕<span class="accent">。</span></h2>
+        <p class="contact-sub">结论:值得聊一聊。</p>
         <a class="contact-mail" href="mailto:clarkakaxxx@gmail.com">clarkakaxxx@gmail.com</a>
         <div class="contact-links">
           <a href="https://github.com/xxx-0425" target="_blank" rel="noopener">GitHub</a>
@@ -222,8 +479,40 @@
   </main>
 
   <footer class="footer">
-    <p>© 2026 张强</p>
+    <p>© 2026 akaxxx <span class="footer-sep">·</span> 纯手工,无模板 <span class="footer-sep">·</span> <span class="footer-run">run completed in <b id="runTime">0.0</b>s</span></p>
   </footer>
+
+  <!-- 终端彩蛋 -->
+  <div class="palette" id="palette" hidden>
+    <div class="palette-backdrop" id="paletteBackdrop"></div>
+    <div class="palette-win">
+      <div class="palette-bar">
+        <i></i><i></i><i></i>
+        <span class="palette-title">akaxxx — interactive shell</span>
+        <button class="palette-close" id="paletteClose" type="button" aria-label="关闭">esc</button>
+      </div>
+      <div class="palette-out" id="paletteOut"></div>
+      <div class="palette-in">
+        <span class="boot-prompt">❯</span>
+        <input id="paletteInput" type="text" autocomplete="off" spellcheck="false" placeholder="输入 help 查看可用命令">
+      </div>
+    </div>
+  </div>
+
+  <!-- 飞越屏幕的无人机彩蛋 -->
+  <div class="drone-flyby" id="droneFlyby" aria-hidden="true">
+    <div class="drone">
+      <span class="drone-arm arm-a"></span>
+      <span class="drone-arm arm-b"></span>
+      <i class="prop p1"></i><i class="prop p2"></i>
+      <i class="prop p3"></i><i class="prop p4"></i>
+      <span class="drone-body"></span>
+      <i class="drone-led led-l"></i><i class="drone-led led-r"></i>
+      <span class="drone-cam"></span>
+      <span class="drone-skid sk-l"></span><span class="drone-skid sk-r"></span>
+      <span class="drone-banner">AKAXXX.DEV ✦ 路过</span>
+    </div>
+  </div>
 
   <script src="js/fluid.js"></script>
   <script src="js/main.js"></script>

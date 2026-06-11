@@ -459,15 +459,20 @@
   }
   var pointers = [pointerPrototype()];
 
-  // 主题色:墨蓝色系
+  // 主题色:按页面区块切换的多套调色板
+  var palettes = {
+    ink:    [[0.05, 0.35, 0.45], [0.06, 0.2, 0.5], [0.1, 0.28, 0.42], [0.04, 0.14, 0.38]],
+    teal:   [[0.04, 0.45, 0.38], [0.05, 0.4, 0.45], [0.03, 0.32, 0.3], [0.08, 0.5, 0.42]],
+    cyan:   [[0.05, 0.5, 0.55], [0.04, 0.4, 0.55], [0.1, 0.45, 0.5], [0.03, 0.3, 0.5]],
+    violet: [[0.3, 0.15, 0.6], [0.4, 0.1, 0.55], [0.25, 0.2, 0.65], [0.2, 0.1, 0.5]],
+    indigo: [[0.15, 0.2, 0.6], [0.1, 0.15, 0.55], [0.2, 0.25, 0.6], [0.08, 0.1, 0.45]],
+    amber:  [[0.6, 0.4, 0.1], [0.55, 0.3, 0.08], [0.5, 0.35, 0.15], [0.45, 0.25, 0.05]],
+    rose:   [[0.55, 0.15, 0.3], [0.5, 0.1, 0.35], [0.6, 0.2, 0.25], [0.45, 0.08, 0.3]],
+  };
+  var currentPalette = palettes.ink;
+
   function generateColor() {
-    var palette = [
-      [0.05, 0.35, 0.45],  // 墨青
-      [0.06, 0.2, 0.5],    // 墨蓝
-      [0.1, 0.28, 0.42],   // 青灰
-      [0.04, 0.14, 0.38],  // 深蓝
-    ];
-    var base = palette[Math.floor(Math.random() * palette.length)];
+    var base = currentPalette[Math.floor(Math.random() * currentPalette.length)];
     var jitter = 0.7 + Math.random() * 0.6;
     return [base[0] * jitter * 0.22, base[1] * jitter * 0.22, base[2] * jitter * 0.22];
   }
@@ -701,6 +706,27 @@
     step(dt);
     render();
   }
+
+  // 对外接口:切换调色板 / 注入几团新墨(供滚动切换区块时调用)
+  window.fluidPalette = function (name) {
+    if (palettes[name]) currentPalette = palettes[name];
+  };
+  window.fluidInject = function (amount) {
+    multipleSplats(amount || 2);
+  };
+
+  // 对外接口:在指定屏幕坐标处爆开一团墨(供页面交互调用)
+  window.fluidBurst = function (clientX, clientY) {
+    var x = scaleByPixelRatio(clientX) / canvas.width;
+    var y = 1 - scaleByPixelRatio(clientY) / canvas.height;
+    for (var i = 0; i < 5; i++) {
+      var color = generateColor();
+      color[0] *= 12; color[1] *= 12; color[2] *= 12;
+      var angle = Math.random() * Math.PI * 2;
+      var force = 800 + Math.random() * 800;
+      splat(x, y, Math.cos(angle) * force, Math.sin(angle) * force, color);
+    }
+  };
 
   resizeCanvas();
   initFramebuffers();
