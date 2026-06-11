@@ -271,6 +271,11 @@ body.cursor-hover .cursor-ring {
   color: var(--ink-faint);
   letter-spacing: 0.15em;
 }
+.hint-mobile { display: none; }
+@media (hover: none) {
+  .hint-desktop { display: none; }
+  .hint-mobile { display: inline; }
+}
 
 .scroll-cue {
   position: absolute;
@@ -671,21 +676,25 @@ main { position: relative; z-index: 2; }
 @media (max-width: 640px) {
   /* 导航:缩小并保证不溢出 */
   .nav {
-    padding: 14px 16px;
+    padding: 12px 14px;
+    gap: 10px;
   }
-  .nav-logo { font-size: 21px; }
-  .nav-links { gap: 14px; }
+  .nav-logo { font-size: 20px; flex-shrink: 0; }
+  .nav-links {
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
   .nav-links a {
-    font-size: 12.5px;
-    letter-spacing: 0.5px;
+    font-size: 12px;
+    letter-spacing: 0;
+    white-space: nowrap;
   }
 
   /* Hero */
-  .hero { padding: 90px 18px 70px; }
-  .hero-ghost {
-    font-size: clamp(40px, 13vw, 60px);
-    letter-spacing: 0.02em;
-  }
+  .hero { padding: 80px 18px 60px; }
+  /* 背景描边大字在窄屏只会被裁剪得支离破碎,直接隐藏 */
+  .hero-ghost { display: none; }
   .hero-kicker {
     letter-spacing: 0.2em;
     gap: 10px;
@@ -693,12 +702,15 @@ main { position: relative; z-index: 2; }
   }
   .hero-kicker .line { width: 26px; }
   .hero-title {
-    font-size: clamp(24px, 7.6vw, 32px);
-    line-height: 1.45;
-    margin-bottom: 26px;
+    font-size: clamp(23px, 6.9vw, 32px);
+    line-height: 1.5;
+    margin-bottom: 24px;
   }
-  .hero-sub { font-size: 14px; margin-bottom: 32px; }
-  .hero-sub br { display: none; }
+  .hero-sub {
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+  }
   .hero-cta { gap: 12px; }
   .btn {
     font-size: 14px;
