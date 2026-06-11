@@ -130,16 +130,21 @@ body {
   display: block;
   color: var(--ink);
   opacity: 0;
-  transform: translateY(50px);
+  transform: translateY(50px) rotate(1.5deg);
   animation: charIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  text-shadow: 0 0 60px rgba(45, 226, 230, 0.18);
 }
 .hero-title .char:nth-child(2) { animation-delay: 0.15s; }
 .hero-title em {
   font-style: normal;
-  color: var(--accent);
+  background: linear-gradient(120deg, #2de2e6 10%, #7b5cff 55%, #ff3d81 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(45, 226, 230, 0.3));
 }
 @keyframes charIn {
-  to { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0) rotate(0); }
 }
 
 .hero-sub {
