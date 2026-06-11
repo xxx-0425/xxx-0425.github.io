@@ -9,9 +9,11 @@
   var canvas = document.getElementById('fluid');
   if (!canvas) return;
 
+  var isMobile = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) || window.innerWidth < 768;
+
   var config = {
-    SIM_RESOLUTION: 128,
-    DYE_RESOLUTION: 720,
+    SIM_RESOLUTION: isMobile ? 96 : 128,
+    DYE_RESOLUTION: isMobile ? 480 : 720,
     DENSITY_DISSIPATION: 1.1,
     VELOCITY_DISSIPATION: 0.35,
     PRESSURE: 0.8,
